@@ -17,3 +17,7 @@ Run following command
     php artisan scribe:generate
 This will generate API Doc at 
 http://localhost:8000/docs and the postman collection at http://localhost:8000/docs/collection.json
+
+Run following command  to send newsletter to subscribers- 
+
+    php artisan news:send
