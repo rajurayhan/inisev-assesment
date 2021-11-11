@@ -15,6 +15,8 @@ class CreateSubscribersTable extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('platform_id');
+            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
             $table->string('email');
             $table->boolean('status');
             $table->timestamps();

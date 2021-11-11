@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Libraries\WebApiResponse;
 use App\Models\Subscriber\Subscriber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SubscriberController extends Controller
 {
@@ -29,14 +31,38 @@ class SubscriberController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Subscribe to a Platform
+     * @group Subscriptions
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
+     * @bodyParam platform_id integer required Platform ID. Example : 1
+     * @bodyParam email email Title Of The Post. Example : send2raju.bd@gmail.com
+     * @bodyParam status boolean required Status . Example : 1
+     *
      * @return \Illuminate\Http\Response
+     * @response 201 {"status":"success","message":"Subscribed Successfully!","code":201,"data":[]}
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'platform_id'   => 'integer|exists:platforms,id',
+            'email'         => 'required|email ',
+            'status'        => "required|boolean"
+        ]);
+
+
+        if ($validator->fails()) {
+            return WebApiResponse::validationError($validator, $request);
+        }
+
+
+        $subscriber = Subscriber::create($request->only([
+            'email',
+            'platform_id',
+            'status'
+        ]));
+
+        return WebApiResponse::success(201, $subscriber->toArray(), 'Post Created Successfully!');
     }
 
     /**

@@ -36,7 +36,7 @@ class PostController extends Controller
      *
      * @param Request $request
      * @bodyParam platform_id integer required Platform ID. Example : 1
-     * @bodyParam title integer string Title Of The Post. Example : Post Title
+     * @bodyParam title string Title Of The Post. Example : Post Title
      * @bodyParam description string required Post Description . Example : Post Description
      * @bodyParam status boolean required Status . Example : 1
      *
@@ -50,7 +50,7 @@ class PostController extends Controller
             'platform_id'   => 'integer|exists:platforms,id',
             'title'         => 'required|string ',
             'description'   => 'required|string',
-            'status'        => "required"
+            'status'        => "required|boolean"
         ]);
 
 

@@ -9,7 +9,7 @@ servers:
 paths:
   /api/subscribers:
     post:
-      summary: 'Store a newly created resource in storage.'
+      summary: 'Subscribe to a Platform'
       description: ''
       parameters:
         -
@@ -26,9 +26,55 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Subscribed Successfully!'
+                  code: 201
+                  data: []
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Subscribed Successfully!'
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: array
+                    example: []
       tags:
-        - Endpoints
+        - Subscriptions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform_id:
+                  type: integer
+                  description: 'Platform ID. Example : 1'
+                  example: 12
+                email:
+                  type: email
+                  description: 'Title Of The Post. Example : send2raju.bd@gmail.com'
+                  example: doloremque
+                status:
+                  type: boolean
+                  description: 'Status . Example : 1'
+                  example: true
+              required:
+                - platform_id
+                - status
       security: []
   /api/posts:
     post:
@@ -50,7 +96,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        201:
           description: ''
           content:
             application/json:
@@ -58,226 +104,22 @@ paths:
                 type: object
                 example:
                   status: success
-                  message: 'File List'
-                  code: 200
-                  data:
-                    -
-                      id: 1
-                      name: 'Raju Rayhan'
-                      email: rayhan@simecsystem.com
-                      phone: '8801849699001'
-                      address: '20, Nur Graden City'
-                      country: Bangladesh
-                      country_id: 15
-                      state: null
-                      state_id: null
-                      zip: '1212'
-                      created_at: '2021-01-26T17:30:31.000000Z'
-                      updated_at: '2021-01-26T17:30:31.000000Z'
-                    -
-                      id: 2
-                      name: 'Nicolas Heathcote'
-                      email: kgusikowski@example.net
-                      phone: '3'
-                      address: '20, Nur Graden City'
-                      country: Bangladesh
-                      country_id: 15
-                      state: null
-                      state_id: null
-                      zip: '1212'
-                      created_at: '2021-01-26T17:30:31.000000Z'
-                      updated_at: '2021-01-26T17:30:31.000000Z'
-                    -
-                      id: 3
-                      name: 'Madelynn Morissette Sr.'
-                      email: enos.koss@example.com
-                      phone: '11'
-                      address: '20, Nur Graden City'
-                      country: Bangladesh
-                      country_id: 15
-                      state: null
-                      state_id: null
-                      zip: '1212'
-                      created_at: '2021-01-26T17:30:31.000000Z'
-                      updated_at: '2021-01-26T17:30:31.000000Z'
-                    -
-                      id: 4
-                      name: 'Sean Rogahn'
-                      email: nils.yundt@example.com
-                      phone: '7'
-                      address: '20, Nur Graden City'
-                      country: Bangladesh
-                      country_id: 15
-                      state: null
-                      state_id: null
-                      zip: '1212'
-                      created_at: '2021-01-26T17:30:31.000000Z'
-                      updated_at: '2021-01-26T17:30:31.000000Z'
-                    -
-                      id: 5
-                      name: 'Prof. Tyra Borer'
-                      email: huel.cornell@example.com
-                      phone: '2'
-                      address: '20, Nur Graden City'
-                      country: Bangladesh
-                      country_id: 15
-                      state: null
-                      state_id: null
-                      zip: '1212'
-                      created_at: '2021-01-26T17:30:31.000000Z'
-                      updated_at: '2021-01-26T17:30:31.000000Z'
-                  links:
-                    first: 'http://localhost:8000/api/users?page=1'
-                    last: 'http://localhost:8000/api/users?page=3'
-                    prev: null
-                    next: 'http://localhost:8000/api/users?page=2'
-                  meta:
-                    current_page: 1
-                    from: 1
-                    last_page: 3
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://localhost:8000/api/users?page=1'
-                        label: 1
-                        active: true
-                      -
-                        url: 'http://localhost:8000/api/users?page=2'
-                        label: 2
-                        active: false
-                      -
-                        url: 'http://localhost:8000/api/users?page=3'
-                        label: 3
-                        active: false
-                      -
-                        url: 'http://localhost:8000/api/users?page=2'
-                        label: 'Next &raquo;'
-                        active: false
-                    path: 'http://localhost:8000/api/users'
-                    per_page: '5'
-                    to: 5
-                    total: 12
+                  message: 'Post Created Successfully!'
+                  code: 201
+                  data: []
                 properties:
                   status:
                     type: string
                     example: success
                   message:
                     type: string
-                    example: 'File List'
+                    example: 'Post Created Successfully!'
                   code:
                     type: integer
-                    example: 200
+                    example: 201
                   data:
                     type: array
-                    example:
-                      -
-                        id: 1
-                        name: 'Raju Rayhan'
-                        email: rayhan@simecsystem.com
-                        phone: '8801849699001'
-                        address: '20, Nur Graden City'
-                        country: Bangladesh
-                        country_id: 15
-                        state: null
-                        state_id: null
-                        zip: '1212'
-                        created_at: '2021-01-26T17:30:31.000000Z'
-                        updated_at: '2021-01-26T17:30:31.000000Z'
-                      -
-                        id: 2
-                        name: 'Nicolas Heathcote'
-                        email: kgusikowski@example.net
-                        phone: '3'
-                        address: '20, Nur Graden City'
-                        country: Bangladesh
-                        country_id: 15
-                        state: null
-                        state_id: null
-                        zip: '1212'
-                        created_at: '2021-01-26T17:30:31.000000Z'
-                        updated_at: '2021-01-26T17:30:31.000000Z'
-                      -
-                        id: 3
-                        name: 'Madelynn Morissette Sr.'
-                        email: enos.koss@example.com
-                        phone: '11'
-                        address: '20, Nur Graden City'
-                        country: Bangladesh
-                        country_id: 15
-                        state: null
-                        state_id: null
-                        zip: '1212'
-                        created_at: '2021-01-26T17:30:31.000000Z'
-                        updated_at: '2021-01-26T17:30:31.000000Z'
-                      -
-                        id: 4
-                        name: 'Sean Rogahn'
-                        email: nils.yundt@example.com
-                        phone: '7'
-                        address: '20, Nur Graden City'
-                        country: Bangladesh
-                        country_id: 15
-                        state: null
-                        state_id: null
-                        zip: '1212'
-                        created_at: '2021-01-26T17:30:31.000000Z'
-                        updated_at: '2021-01-26T17:30:31.000000Z'
-                      -
-                        id: 5
-                        name: 'Prof. Tyra Borer'
-                        email: huel.cornell@example.com
-                        phone: '2'
-                        address: '20, Nur Graden City'
-                        country: Bangladesh
-                        country_id: 15
-                        state: null
-                        state_id: null
-                        zip: '1212'
-                        created_at: '2021-01-26T17:30:31.000000Z'
-                        updated_at: '2021-01-26T17:30:31.000000Z'
-                    items:
-                      type: object
-                  links:
-                    type: object
-                    example:
-                      first: 'http://localhost:8000/api/users?page=1'
-                      last: 'http://localhost:8000/api/users?page=3'
-                      prev: null
-                      next: 'http://localhost:8000/api/users?page=2'
-                  meta:
-                    type: object
-                    example:
-                      current_page: 1
-                      from: 1
-                      last_page: 3
-                      links:
-                        -
-                          url: null
-                          label: '&laquo; Previous'
-                          active: false
-                        -
-                          url: 'http://localhost:8000/api/users?page=1'
-                          label: 1
-                          active: true
-                        -
-                          url: 'http://localhost:8000/api/users?page=2'
-                          label: 2
-                          active: false
-                        -
-                          url: 'http://localhost:8000/api/users?page=3'
-                          label: 3
-                          active: false
-                        -
-                          url: 'http://localhost:8000/api/users?page=2'
-                          label: 'Next &raquo;'
-                          active: false
-                      path: 'http://localhost:8000/api/users'
-                      per_page: '5'
-                      to: 5
-                      total: 12
+                    example: []
       tags:
         - Posts
       requestBody:
@@ -290,19 +132,19 @@ paths:
                 platform_id:
                   type: integer
                   description: 'Platform ID. Example : 1'
-                  example: 11
+                  example: 7
                 title:
-                  type: integer
-                  description: 'string Title Of The Post. Example : Post Title'
-                  example: 8
+                  type: string
+                  description: 'Title Of The Post. Example : Post Title'
+                  example: quod
                 description:
                   type: string
                   description: 'Post Description . Example : Post Description'
-                  example: repellendus
+                  example: qui
                 status:
                   type: boolean
                   description: 'Status . Example : 1'
-                  example: false
+                  example: true
               required:
                 - platform_id
                 - description
@@ -310,7 +152,7 @@ paths:
       security: []
 tags:
   -
-    name: Endpoints
+    name: Subscriptions
     description: ''
   -
     name: Posts
