@@ -15,7 +15,4 @@ class Subscriber extends Model
         'status'
     ];
 
-    public function platform(){
-        return $this->hasMany('App\Models\Comment');
-    }
 }
