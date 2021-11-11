@@ -23,7 +23,8 @@ class NewsLetterService
 
     public static function getNotSentEmils(Post $post )
     {
-        $alreadySent    = PostHasSubscribers::where('post_id', $post)->get()->pluck('subscriber_id')->toArray();
+        $alreadySent    = PostHasSubscribers::where('post_id', $post->id)->get()->pluck('subscriber_id')->toArray();
+        Log::info($alreadySent);
         $query          = Subscriber::query();
         if($alreadySent){
             $query->whereNotIn('id', $alreadySent);
