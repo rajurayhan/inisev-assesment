@@ -40,7 +40,7 @@ class SubscriberController extends Controller
      * @bodyParam status boolean required Status . Example : 1
      *
      * @return \Illuminate\Http\Response
-     * @response 201 {"status":"success","message":"Subscribed Successfully!","code":201,"data":[]}
+     * @response 201 {"status":"success","message":"Subscribed Successfully!","code":201,"data":{"email":"send2raju.bd@gmail.com","platform_id":"1","status":true,"updated_at":"2021-11-11T21:05:37.000000Z","created_at":"2021-11-11T21:05:37.000000Z","id":4}}
      */
     public function store(Request $request)
     {
@@ -62,7 +62,7 @@ class SubscriberController extends Controller
             'status'
         ]));
 
-        return WebApiResponse::success(201, $subscriber->toArray(), 'Post Created Successfully!');
+        return WebApiResponse::success(201, $subscriber->toArray(), 'Subscribed Successfully!');
     }
 
     /**

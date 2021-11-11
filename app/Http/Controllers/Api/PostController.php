@@ -42,7 +42,7 @@ class PostController extends Controller
      * @bodyParam status boolean required Status . Example : 1
      *
      * @return \Illuminate\Http\Response
-     * @response 201 {"status":"success","message":"Post Created Successfully!","code":201,"data":[]}
+     * @response 201 {"status":"success","message":"Post Created Successfully!","code":201,"data":{"platform_id":"1","title":"quod","description":"qui","status":true,"updated_at":"2021-11-11T21:01:46.000000Z","created_at":"2021-11-11T21:01:46.000000Z","id":8}}
      */
     public function store(Request $request)
     {

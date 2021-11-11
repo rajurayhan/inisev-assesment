@@ -7,7 +7,7 @@
     <title>Email</title>
 </head>
 <body>
-    <p>{{ $data->title }}</p>
-    <p>{{ $data->description }}</p>
+    <p>  Title: {{ $data->title }}</p>
+    <p>  Description: {{ $data->description }}</p>
 </body>
 </html>

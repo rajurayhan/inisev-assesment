@@ -15,4 +15,8 @@ class Post extends Model
         'description',
         'status'
     ];
+
+    public function subscribers(){
+        return $this->hasMany('App\Models\Post\PostHasSubscribers', 'post_id');
+    }
 }
