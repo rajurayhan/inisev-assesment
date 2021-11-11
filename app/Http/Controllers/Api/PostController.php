@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Libraries\WebApiResponse;
 use App\Models\Post\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -40,11 +41,32 @@ class PostController extends Controller
      * @bodyParam status boolean required Status . Example : 1
      *
      * @return \Illuminate\Http\Response
-     * @response 201 {"status":"success","message":"File List","code":200,"data":[{"id":1,"name":"Raju Rayhan","email":"rayhan@simecsystem.com","phone":"8801849699001","address":"20, Nur Graden City","country":"Bangladesh","country_id":15,"state":null,"state_id":null,"zip":"1212","created_at":"2021-01-26T17:30:31.000000Z","updated_at":"2021-01-26T17:30:31.000000Z"},{"id":2,"name":"Nicolas Heathcote","email":"kgusikowski@example.net","phone":"3","address":"20, Nur Graden City","country":"Bangladesh","country_id":15,"state":null,"state_id":null,"zip":"1212","created_at":"2021-01-26T17:30:31.000000Z","updated_at":"2021-01-26T17:30:31.000000Z"},{"id":3,"name":"Madelynn Morissette Sr.","email":"enos.koss@example.com","phone":"11","address":"20, Nur Graden City","country":"Bangladesh","country_id":15,"state":null,"state_id":null,"zip":"1212","created_at":"2021-01-26T17:30:31.000000Z","updated_at":"2021-01-26T17:30:31.000000Z"},{"id":4,"name":"Sean Rogahn","email":"nils.yundt@example.com","phone":"7","address":"20, Nur Graden City","country":"Bangladesh","country_id":15,"state":null,"state_id":null,"zip":"1212","created_at":"2021-01-26T17:30:31.000000Z","updated_at":"2021-01-26T17:30:31.000000Z"},{"id":5,"name":"Prof. Tyra Borer","email":"huel.cornell@example.com","phone":"2","address":"20, Nur Graden City","country":"Bangladesh","country_id":15,"state":null,"state_id":null,"zip":"1212","created_at":"2021-01-26T17:30:31.000000Z","updated_at":"2021-01-26T17:30:31.000000Z"}],"links":{"first":"http:\/\/localhost:8000\/api\/users?page=1","last":"http:\/\/localhost:8000\/api\/users?page=3","prev":null,"next":"http:\/\/localhost:8000\/api\/users?page=2"},"meta":{"current_page":1,"from":1,"last_page":3,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/users?page=1","label":1,"active":true},{"url":"http:\/\/localhost:8000\/api\/users?page=2","label":2,"active":false},{"url":"http:\/\/localhost:8000\/api\/users?page=3","label":3,"active":false},{"url":"http:\/\/localhost:8000\/api\/users?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/users","per_page":"5","to":5,"total":12}}
+     * @response 201 {"status":"success","message":"Post Created Successfully!","code":201,"data":[]}
      */
     public function store(Request $request)
     {
-        return WebApiResponse::success(201, [], 'Post Created Successfully!');
+
+        $validator = Validator::make($request->all(), [
+            'platform_id'   => 'integer|exists:platforms,id',
+            'title'         => 'required|string ',
+            'description'   => 'required|string',
+            'status'        => "required"
+        ]);
+
+
+        if ($validator->fails()) {
+            return WebApiResponse::validationError($validator, $request);
+        }
+
+
+        $post = Post::create($request->only([
+            'platform_id',
+            'title',
+            'description',
+            'status'
+        ]));
+
+        return WebApiResponse::success(201, $post->toArray(), 'Post Created Successfully!');
     }
 
     /**
