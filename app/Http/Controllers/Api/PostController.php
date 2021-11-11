@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Libraries\WebApiResponse;
 use App\Models\Post\Post;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Hello World!';
+        return WebApiResponse::success(200, [], 'Post Created Successfully!');
     }
 
     /**
