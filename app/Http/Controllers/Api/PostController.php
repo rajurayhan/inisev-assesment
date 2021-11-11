@@ -36,7 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'Hello World!';
     }
 
     /**
