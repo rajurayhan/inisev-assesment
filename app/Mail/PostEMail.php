@@ -32,6 +32,6 @@ class PostEMail extends Mailable
     {
         return $this->from('send2raju.bd@gmail.com', 'Inisev Assesment')
         ->subject($this->data ? $this->data['subject'] : 'Inisev Assesment')
-        ->view('emails.email_notification',['data'=>$this->data]);
+        ->view('mail.email_notification',['data'=>$this->data]);
     }
 }

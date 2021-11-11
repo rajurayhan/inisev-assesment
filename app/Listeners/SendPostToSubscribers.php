@@ -31,6 +31,5 @@ class SendPostToSubscribers
         $post = $event->post;
         $emailJob = new SendMailToSubscriber($post);
         dispatch($emailJob);
-        Log::info($post);
     }
 }
