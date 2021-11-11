@@ -75,80 +75,6 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-            <h2 id="endpoints-POSTapi-posts">Store a newly created resource in storage.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-posts">
-<blockquote>Example request:</blockquote>
-
-
-<pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/posts" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-
-<pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/posts"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre>
-</span>
-
-<span id="example-responses-POSTapi-posts">
-</span>
-<span id="execution-results-POSTapi-posts" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-posts"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-posts"></code></pre>
-</span>
-<span id="execution-error-POSTapi-posts" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-posts"></code></pre>
-</span>
-<form id="form-POSTapi-posts" data-method="POST"
-      data-path="api/posts"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-posts', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-posts"
-                    onclick="tryItOut('POSTapi-posts');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-posts"
-                    onclick="cancelTryOut('POSTapi-posts');" hidden>Cancel
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-posts" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/posts</code></b>
-        </p>
-                    </form>
-
             <h2 id="endpoints-POSTapi-subscribers">Store a newly created resource in storage.</h2>
 
 <p>
@@ -222,6 +148,276 @@ fetch(url, {
             <b><code>api/subscribers</code></b>
         </p>
                     </form>
+
+        <h1 id="posts">Posts</h1>
+
+    
+
+            <h2 id="posts-POSTapi-posts">Create A New Post</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-posts">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/posts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"platform_id\": 11,
+    \"title\": 8,
+    \"description\": \"repellendus\",
+    \"status\": false
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/posts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "platform_id": 11,
+    "title": 8,
+    "description": "repellendus",
+    "status": false
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-posts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;File List&quot;,
+    &quot;code&quot;: 200,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Raju Rayhan&quot;,
+            &quot;email&quot;: &quot;rayhan@simecsystem.com&quot;,
+            &quot;phone&quot;: &quot;8801849699001&quot;,
+            &quot;address&quot;: &quot;20, Nur Graden City&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;country_id&quot;: 15,
+            &quot;state&quot;: null,
+            &quot;state_id&quot;: null,
+            &quot;zip&quot;: &quot;1212&quot;,
+            &quot;created_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Nicolas Heathcote&quot;,
+            &quot;email&quot;: &quot;kgusikowski@example.net&quot;,
+            &quot;phone&quot;: &quot;3&quot;,
+            &quot;address&quot;: &quot;20, Nur Graden City&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;country_id&quot;: 15,
+            &quot;state&quot;: null,
+            &quot;state_id&quot;: null,
+            &quot;zip&quot;: &quot;1212&quot;,
+            &quot;created_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Madelynn Morissette Sr.&quot;,
+            &quot;email&quot;: &quot;enos.koss@example.com&quot;,
+            &quot;phone&quot;: &quot;11&quot;,
+            &quot;address&quot;: &quot;20, Nur Graden City&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;country_id&quot;: 15,
+            &quot;state&quot;: null,
+            &quot;state_id&quot;: null,
+            &quot;zip&quot;: &quot;1212&quot;,
+            &quot;created_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Sean Rogahn&quot;,
+            &quot;email&quot;: &quot;nils.yundt@example.com&quot;,
+            &quot;phone&quot;: &quot;7&quot;,
+            &quot;address&quot;: &quot;20, Nur Graden City&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;country_id&quot;: 15,
+            &quot;state&quot;: null,
+            &quot;state_id&quot;: null,
+            &quot;zip&quot;: &quot;1212&quot;,
+            &quot;created_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;Prof. Tyra Borer&quot;,
+            &quot;email&quot;: &quot;huel.cornell@example.com&quot;,
+            &quot;phone&quot;: &quot;2&quot;,
+            &quot;address&quot;: &quot;20, Nur Graden City&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;country_id&quot;: 15,
+            &quot;state&quot;: null,
+            &quot;state_id&quot;: null,
+            &quot;zip&quot;: &quot;1212&quot;,
+            &quot;created_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-01-26T17:30:31.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/users?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/users?page=3&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: &quot;http://localhost:8000/api/users?page=2&quot;
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 3,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/users?page=1&quot;,
+                &quot;label&quot;: 1,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/users?page=2&quot;,
+                &quot;label&quot;: 2,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/users?page=3&quot;,
+                &quot;label&quot;: 3,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/users?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost:8000/api/users&quot;,
+        &quot;per_page&quot;: &quot;5&quot;,
+        &quot;to&quot;: 5,
+        &quot;total&quot;: 12
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-posts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-posts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-posts"></code></pre>
+</span>
+<span id="execution-error-POSTapi-posts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-posts"></code></pre>
+</span>
+<form id="form-POSTapi-posts" data-method="POST"
+      data-path="api/posts"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-posts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-posts"
+                    onclick="tryItOut('POSTapi-posts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-posts"
+                    onclick="cancelTryOut('POSTapi-posts');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-posts" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/posts</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>platform_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="platform_id"
+               data-endpoint="POSTapi-posts"
+               value="11"
+               data-component="body" hidden>
+    <br>
+<p>Platform ID. Example : 1</p>
+        </p>
+                <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="title"
+               data-endpoint="POSTapi-posts"
+               value="8"
+               data-component="body" hidden>
+    <br>
+<p>string Title Of The Post. Example : Post Title</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-posts"
+               value="repellendus"
+               data-component="body" hidden>
+    <br>
+<p>Post Description . Example : Post Description</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
+                <label data-endpoint="POSTapi-posts" hidden>
+            <input type="radio" name="status"
+                   value="true"
+                   data-endpoint="POSTapi-posts"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-posts" hidden>
+            <input type="radio" name="status"
+                   value="false"
+                   data-endpoint="POSTapi-posts"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+<p>Status . Example : 1</p>
+        </p>
+        </form>
 
     
 

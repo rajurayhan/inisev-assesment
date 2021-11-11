@@ -7,29 +7,6 @@ servers:
   -
     url: 'http://localhost:8000'
 paths:
-  /api/posts:
-    post:
-      summary: 'Store a newly created resource in storage.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
   /api/subscribers:
     post:
       summary: 'Store a newly created resource in storage.'
@@ -53,7 +30,288 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/posts:
+    post:
+      summary: 'Create A New Post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'File List'
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      name: 'Raju Rayhan'
+                      email: rayhan@simecsystem.com
+                      phone: '8801849699001'
+                      address: '20, Nur Graden City'
+                      country: Bangladesh
+                      country_id: 15
+                      state: null
+                      state_id: null
+                      zip: '1212'
+                      created_at: '2021-01-26T17:30:31.000000Z'
+                      updated_at: '2021-01-26T17:30:31.000000Z'
+                    -
+                      id: 2
+                      name: 'Nicolas Heathcote'
+                      email: kgusikowski@example.net
+                      phone: '3'
+                      address: '20, Nur Graden City'
+                      country: Bangladesh
+                      country_id: 15
+                      state: null
+                      state_id: null
+                      zip: '1212'
+                      created_at: '2021-01-26T17:30:31.000000Z'
+                      updated_at: '2021-01-26T17:30:31.000000Z'
+                    -
+                      id: 3
+                      name: 'Madelynn Morissette Sr.'
+                      email: enos.koss@example.com
+                      phone: '11'
+                      address: '20, Nur Graden City'
+                      country: Bangladesh
+                      country_id: 15
+                      state: null
+                      state_id: null
+                      zip: '1212'
+                      created_at: '2021-01-26T17:30:31.000000Z'
+                      updated_at: '2021-01-26T17:30:31.000000Z'
+                    -
+                      id: 4
+                      name: 'Sean Rogahn'
+                      email: nils.yundt@example.com
+                      phone: '7'
+                      address: '20, Nur Graden City'
+                      country: Bangladesh
+                      country_id: 15
+                      state: null
+                      state_id: null
+                      zip: '1212'
+                      created_at: '2021-01-26T17:30:31.000000Z'
+                      updated_at: '2021-01-26T17:30:31.000000Z'
+                    -
+                      id: 5
+                      name: 'Prof. Tyra Borer'
+                      email: huel.cornell@example.com
+                      phone: '2'
+                      address: '20, Nur Graden City'
+                      country: Bangladesh
+                      country_id: 15
+                      state: null
+                      state_id: null
+                      zip: '1212'
+                      created_at: '2021-01-26T17:30:31.000000Z'
+                      updated_at: '2021-01-26T17:30:31.000000Z'
+                  links:
+                    first: 'http://localhost:8000/api/users?page=1'
+                    last: 'http://localhost:8000/api/users?page=3'
+                    prev: null
+                    next: 'http://localhost:8000/api/users?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 3
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/users?page=1'
+                        label: 1
+                        active: true
+                      -
+                        url: 'http://localhost:8000/api/users?page=2'
+                        label: 2
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/users?page=3'
+                        label: 3
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/users?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/users'
+                    per_page: '5'
+                    to: 5
+                    total: 12
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'File List'
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Raju Rayhan'
+                        email: rayhan@simecsystem.com
+                        phone: '8801849699001'
+                        address: '20, Nur Graden City'
+                        country: Bangladesh
+                        country_id: 15
+                        state: null
+                        state_id: null
+                        zip: '1212'
+                        created_at: '2021-01-26T17:30:31.000000Z'
+                        updated_at: '2021-01-26T17:30:31.000000Z'
+                      -
+                        id: 2
+                        name: 'Nicolas Heathcote'
+                        email: kgusikowski@example.net
+                        phone: '3'
+                        address: '20, Nur Graden City'
+                        country: Bangladesh
+                        country_id: 15
+                        state: null
+                        state_id: null
+                        zip: '1212'
+                        created_at: '2021-01-26T17:30:31.000000Z'
+                        updated_at: '2021-01-26T17:30:31.000000Z'
+                      -
+                        id: 3
+                        name: 'Madelynn Morissette Sr.'
+                        email: enos.koss@example.com
+                        phone: '11'
+                        address: '20, Nur Graden City'
+                        country: Bangladesh
+                        country_id: 15
+                        state: null
+                        state_id: null
+                        zip: '1212'
+                        created_at: '2021-01-26T17:30:31.000000Z'
+                        updated_at: '2021-01-26T17:30:31.000000Z'
+                      -
+                        id: 4
+                        name: 'Sean Rogahn'
+                        email: nils.yundt@example.com
+                        phone: '7'
+                        address: '20, Nur Graden City'
+                        country: Bangladesh
+                        country_id: 15
+                        state: null
+                        state_id: null
+                        zip: '1212'
+                        created_at: '2021-01-26T17:30:31.000000Z'
+                        updated_at: '2021-01-26T17:30:31.000000Z'
+                      -
+                        id: 5
+                        name: 'Prof. Tyra Borer'
+                        email: huel.cornell@example.com
+                        phone: '2'
+                        address: '20, Nur Graden City'
+                        country: Bangladesh
+                        country_id: 15
+                        state: null
+                        state_id: null
+                        zip: '1212'
+                        created_at: '2021-01-26T17:30:31.000000Z'
+                        updated_at: '2021-01-26T17:30:31.000000Z'
+                    items:
+                      type: object
+                  links:
+                    type: object
+                    example:
+                      first: 'http://localhost:8000/api/users?page=1'
+                      last: 'http://localhost:8000/api/users?page=3'
+                      prev: null
+                      next: 'http://localhost:8000/api/users?page=2'
+                  meta:
+                    type: object
+                    example:
+                      current_page: 1
+                      from: 1
+                      last_page: 3
+                      links:
+                        -
+                          url: null
+                          label: '&laquo; Previous'
+                          active: false
+                        -
+                          url: 'http://localhost:8000/api/users?page=1'
+                          label: 1
+                          active: true
+                        -
+                          url: 'http://localhost:8000/api/users?page=2'
+                          label: 2
+                          active: false
+                        -
+                          url: 'http://localhost:8000/api/users?page=3'
+                          label: 3
+                          active: false
+                        -
+                          url: 'http://localhost:8000/api/users?page=2'
+                          label: 'Next &raquo;'
+                          active: false
+                      path: 'http://localhost:8000/api/users'
+                      per_page: '5'
+                      to: 5
+                      total: 12
+      tags:
+        - Posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform_id:
+                  type: integer
+                  description: 'Platform ID. Example : 1'
+                  example: 11
+                title:
+                  type: integer
+                  description: 'string Title Of The Post. Example : Post Title'
+                  example: 8
+                description:
+                  type: string
+                  description: 'Post Description . Example : Post Description'
+                  example: repellendus
+                status:
+                  type: boolean
+                  description: 'Status . Example : 1'
+                  example: false
+              required:
+                - platform_id
+                - description
+                - status
+      security: []
 tags:
   -
     name: Endpoints
+    description: ''
+  -
+    name: Posts
     description: ''
