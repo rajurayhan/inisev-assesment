@@ -22,7 +22,7 @@ class SendNewsLaterEmail extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Post Sent to Subscribers';
 
     /**
      * Create a new command instance.

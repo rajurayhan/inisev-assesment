@@ -35,7 +35,6 @@ class SendPostToSubscribers
 
         $subscribers    = NewsLetterService::getNotSentEmils($post);
         $emails         = array_column ($subscribers->toArray(), 'email');
-        \Log::info($emails);
 
         $emailJob = new SendMailToSubscriber($post, $emails);
         dispatch($emailJob);
