@@ -21,13 +21,13 @@ endpoints:
         name: platform_id
         description: 'Platform ID. Example : 1'
         required: true
-        example: 12
+        example: 16
         type: integer
       email:
         name: email
         description: 'Title Of The Post. Example : send2raju.bd@gmail.com'
         required: false
-        example: doloremque
+        example: nisi
         type: email
       status:
         name: status
@@ -38,7 +38,7 @@ endpoints:
     responses:
       -
         status: 201
-        content: '{"status":"success","message":"Subscribed Successfully!","code":201,"data":[]}'
+        content: '{"status":"success","message":"Subscribed Successfully!","code":201,"data":{"email":"send2raju.bd@gmail.com","platform_id":"1","status":true,"updated_at":"2021-11-11T21:05:37.000000Z","created_at":"2021-11-11T21:05:37.000000Z","id":4}}'
         headers: []
         description: '201'
     responseFields: []

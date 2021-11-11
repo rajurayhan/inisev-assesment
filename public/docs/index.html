@@ -71,151 +71,6 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="subscriptions">Subscriptions</h1>
-
-    
-
-            <h2 id="subscriptions-POSTapi-subscribers">Subscribe to a Platform</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-subscribers">
-<blockquote>Example request:</blockquote>
-
-
-<pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/subscribers" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"platform_id\": 12,
-    \"email\": \"doloremque\",
-    \"status\": true
-}"
-</code></pre>
-
-<pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/subscribers"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "platform_id": 12,
-    "email": "doloremque",
-    "status": true
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
-</span>
-
-<span id="example-responses-POSTapi-subscribers">
-            <blockquote>
-            <p>Example response (201):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;Subscribed Successfully!&quot;,
-    &quot;code&quot;: 201,
-    &quot;data&quot;: []
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-subscribers" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-subscribers"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-subscribers"></code></pre>
-</span>
-<span id="execution-error-POSTapi-subscribers" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-subscribers"></code></pre>
-</span>
-<form id="form-POSTapi-subscribers" data-method="POST"
-      data-path="api/subscribers"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-subscribers', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-subscribers"
-                    onclick="tryItOut('POSTapi-subscribers');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-subscribers"
-                    onclick="cancelTryOut('POSTapi-subscribers');" hidden>Cancel
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-subscribers" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/subscribers</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>platform_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="platform_id"
-               data-endpoint="POSTapi-subscribers"
-               value="12"
-               data-component="body" hidden>
-    <br>
-<p>Platform ID. Example : 1</p>
-        </p>
-                <p>
-            <b><code>email</code></b>&nbsp;&nbsp;<small>email</small>     <i>optional</i> &nbsp;
-                <input type="text"
-               name="email"
-               data-endpoint="POSTapi-subscribers"
-               value="doloremque"
-               data-component="body" hidden>
-    <br>
-<p>Title Of The Post. Example : send2raju.bd@gmail.com</p>
-        </p>
-                <p>
-            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
-                <label data-endpoint="POSTapi-subscribers" hidden>
-            <input type="radio" name="status"
-                   value="true"
-                   data-endpoint="POSTapi-subscribers"
-                   data-component="body"
-            >
-            <code>true</code>
-        </label>
-        <label data-endpoint="POSTapi-subscribers" hidden>
-            <input type="radio" name="status"
-                   value="false"
-                   data-endpoint="POSTapi-subscribers"
-                   data-component="body"
-            >
-            <code>false</code>
-        </label>
-    <br>
-<p>Status . Example : 1</p>
-        </p>
-        </form>
-
         <h1 id="posts">Posts</h1>
 
     
@@ -236,9 +91,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"platform_id\": 7,
-    \"title\": \"quod\",
-    \"description\": \"qui\",
+    \"platform_id\": 12,
+    \"title\": \"qui\",
+    \"description\": \"quia\",
     \"status\": true
 }"
 </code></pre>
@@ -253,9 +108,9 @@ const headers = {
 };
 
 let body = {
-    "platform_id": 7,
-    "title": "quod",
-    "description": "qui",
+    "platform_id": 12,
+    "title": "qui",
+    "description": "quia",
     "status": true
 };
 
@@ -276,7 +131,15 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;Post Created Successfully!&quot;,
     &quot;code&quot;: 201,
-    &quot;data&quot;: []
+    &quot;data&quot;: {
+        &quot;platform_id&quot;: &quot;1&quot;,
+        &quot;title&quot;: &quot;quod&quot;,
+        &quot;description&quot;: &quot;qui&quot;,
+        &quot;status&quot;: true,
+        &quot;updated_at&quot;: &quot;2021-11-11T21:01:46.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-11-11T21:01:46.000000Z&quot;,
+        &quot;id&quot;: 8
+    }
 }</code>
  </pre>
     </span>
@@ -325,7 +188,7 @@ fetch(url, {
                 <input type="number"
                name="platform_id"
                data-endpoint="POSTapi-posts"
-               value="7"
+               value="12"
                data-component="body" hidden>
     <br>
 <p>Platform ID. Example : 1</p>
@@ -335,7 +198,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="POSTapi-posts"
-               value="quod"
+               value="qui"
                data-component="body" hidden>
     <br>
 <p>Title Of The Post. Example : Post Title</p>
@@ -345,7 +208,7 @@ fetch(url, {
                 <input type="text"
                name="description"
                data-endpoint="POSTapi-posts"
-               value="qui"
+               value="quia"
                data-component="body" hidden>
     <br>
 <p>Post Description . Example : Post Description</p>
@@ -364,6 +227,158 @@ fetch(url, {
             <input type="radio" name="status"
                    value="false"
                    data-endpoint="POSTapi-posts"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+<p>Status . Example : 1</p>
+        </p>
+        </form>
+
+        <h1 id="subscriptions">Subscriptions</h1>
+
+    
+
+            <h2 id="subscriptions-POSTapi-subscribers">Subscribe to a Platform</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-subscribers">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/subscribers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"platform_id\": 16,
+    \"email\": \"nisi\",
+    \"status\": true
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/subscribers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "platform_id": 16,
+    "email": "nisi",
+    "status": true
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-subscribers">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Subscribed Successfully!&quot;,
+    &quot;code&quot;: 201,
+    &quot;data&quot;: {
+        &quot;email&quot;: &quot;send2raju.bd@gmail.com&quot;,
+        &quot;platform_id&quot;: &quot;1&quot;,
+        &quot;status&quot;: true,
+        &quot;updated_at&quot;: &quot;2021-11-11T21:05:37.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-11-11T21:05:37.000000Z&quot;,
+        &quot;id&quot;: 4
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-subscribers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-subscribers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-subscribers"></code></pre>
+</span>
+<span id="execution-error-POSTapi-subscribers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-subscribers"></code></pre>
+</span>
+<form id="form-POSTapi-subscribers" data-method="POST"
+      data-path="api/subscribers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-subscribers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-subscribers"
+                    onclick="tryItOut('POSTapi-subscribers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-subscribers"
+                    onclick="cancelTryOut('POSTapi-subscribers');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-subscribers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/subscribers</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>platform_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="platform_id"
+               data-endpoint="POSTapi-subscribers"
+               value="16"
+               data-component="body" hidden>
+    <br>
+<p>Platform ID. Example : 1</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>email</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-subscribers"
+               value="nisi"
+               data-component="body" hidden>
+    <br>
+<p>Title Of The Post. Example : send2raju.bd@gmail.com</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
+                <label data-endpoint="POSTapi-subscribers" hidden>
+            <input type="radio" name="status"
+                   value="true"
+                   data-endpoint="POSTapi-subscribers"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-subscribers" hidden>
+            <input type="radio" name="status"
+                   value="false"
+                   data-endpoint="POSTapi-subscribers"
                    data-component="body"
             >
             <code>false</code>

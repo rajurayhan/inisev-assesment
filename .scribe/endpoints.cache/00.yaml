@@ -21,19 +21,19 @@ endpoints:
         name: platform_id
         description: 'Platform ID. Example : 1'
         required: true
-        example: 7
+        example: 12
         type: integer
       title:
         name: title
         description: 'Title Of The Post. Example : Post Title'
         required: false
-        example: quod
+        example: qui
         type: string
       description:
         name: description
         description: 'Post Description . Example : Post Description'
         required: true
-        example: qui
+        example: quia
         type: string
       status:
         name: status
@@ -44,7 +44,7 @@ endpoints:
     responses:
       -
         status: 201
-        content: '{"status":"success","message":"Post Created Successfully!","code":201,"data":[]}'
+        content: '{"status":"success","message":"Post Created Successfully!","code":201,"data":{"platform_id":"1","title":"quod","description":"qui","status":true,"updated_at":"2021-11-11T21:01:46.000000Z","created_at":"2021-11-11T21:01:46.000000Z","id":8}}'
         headers: []
         description: '201'
     responseFields: []

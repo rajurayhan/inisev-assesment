@@ -10,56 +10,11 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "7776281d-2c50-4e6f-b9cb-fdfedac87568",
+        "_postman_id": "ce5df7a6-9523-413c-b2e4-8bef56bf111c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
-        {
-            "name": "Subscriptions",
-            "description": "",
-            "item": [
-                {
-                    "name": "Subscribe to a Platform",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/subscribers",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/subscribers"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"platform_id\":12,\"email\":\"doloremque\",\"status\":true}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\"status\":\"success\",\"message\":\"Subscribed Successfully!\",\"code\":201,\"data\":[]}",
-                            "name": ""
-                        }
-                    ]
-                }
-            ]
-        },
         {
             "name": "Posts",
             "description": "",
@@ -87,7 +42,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"platform_id\":7,\"title\":\"quod\",\"description\":\"qui\",\"status\":true}"
+                            "raw": "{\"platform_id\":12,\"title\":\"qui\",\"description\":\"quia\",\"status\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -98,7 +53,52 @@
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\"status\":\"success\",\"message\":\"Post Created Successfully!\",\"code\":201,\"data\":[]}",
+                            "body": "{\"status\":\"success\",\"message\":\"Post Created Successfully!\",\"code\":201,\"data\":{\"platform_id\":\"1\",\"title\":\"quod\",\"description\":\"qui\",\"status\":true,\"updated_at\":\"2021-11-11T21:01:46.000000Z\",\"created_at\":\"2021-11-11T21:01:46.000000Z\",\"id\":8}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Subscriptions",
+            "description": "",
+            "item": [
+                {
+                    "name": "Subscribe to a Platform",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/subscribers",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/subscribers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"platform_id\":16,\"email\":\"nisi\",\"status\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"status\":\"success\",\"message\":\"Subscribed Successfully!\",\"code\":201,\"data\":{\"email\":\"send2raju.bd@gmail.com\",\"platform_id\":\"1\",\"status\":true,\"updated_at\":\"2021-11-11T21:05:37.000000Z\",\"created_at\":\"2021-11-11T21:05:37.000000Z\",\"id\":4}}",
                             "name": ""
                         }
                     ]

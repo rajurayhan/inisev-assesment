@@ -7,75 +7,6 @@ servers:
   -
     url: 'http://localhost:8000'
 paths:
-  /api/subscribers:
-    post:
-      summary: 'Subscribe to a Platform'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        201:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: success
-                  message: 'Subscribed Successfully!'
-                  code: 201
-                  data: []
-                properties:
-                  status:
-                    type: string
-                    example: success
-                  message:
-                    type: string
-                    example: 'Subscribed Successfully!'
-                  code:
-                    type: integer
-                    example: 201
-                  data:
-                    type: array
-                    example: []
-      tags:
-        - Subscriptions
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                platform_id:
-                  type: integer
-                  description: 'Platform ID. Example : 1'
-                  example: 12
-                email:
-                  type: email
-                  description: 'Title Of The Post. Example : send2raju.bd@gmail.com'
-                  example: doloremque
-                status:
-                  type: boolean
-                  description: 'Status . Example : 1'
-                  example: true
-              required:
-                - platform_id
-                - status
-      security: []
   /api/posts:
     post:
       summary: 'Create A New Post'
@@ -106,7 +37,14 @@ paths:
                   status: success
                   message: 'Post Created Successfully!'
                   code: 201
-                  data: []
+                  data:
+                    platform_id: '1'
+                    title: quod
+                    description: qui
+                    status: true
+                    updated_at: '2021-11-11T21:01:46.000000Z'
+                    created_at: '2021-11-11T21:01:46.000000Z'
+                    id: 8
                 properties:
                   status:
                     type: string
@@ -118,8 +56,15 @@ paths:
                     type: integer
                     example: 201
                   data:
-                    type: array
-                    example: []
+                    type: object
+                    example:
+                      platform_id: '1'
+                      title: quod
+                      description: qui
+                      status: true
+                      updated_at: '2021-11-11T21:01:46.000000Z'
+                      created_at: '2021-11-11T21:01:46.000000Z'
+                      id: 8
       tags:
         - Posts
       requestBody:
@@ -132,15 +77,15 @@ paths:
                 platform_id:
                   type: integer
                   description: 'Platform ID. Example : 1'
-                  example: 7
+                  example: 12
                 title:
                   type: string
                   description: 'Title Of The Post. Example : Post Title'
-                  example: quod
+                  example: qui
                 description:
                   type: string
                   description: 'Post Description . Example : Post Description'
-                  example: qui
+                  example: quia
                 status:
                   type: boolean
                   description: 'Status . Example : 1'
@@ -150,10 +95,91 @@ paths:
                 - description
                 - status
       security: []
+  /api/subscribers:
+    post:
+      summary: 'Subscribe to a Platform'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Subscribed Successfully!'
+                  code: 201
+                  data:
+                    email: send2raju.bd@gmail.com
+                    platform_id: '1'
+                    status: true
+                    updated_at: '2021-11-11T21:05:37.000000Z'
+                    created_at: '2021-11-11T21:05:37.000000Z'
+                    id: 4
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Subscribed Successfully!'
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    example:
+                      email: send2raju.bd@gmail.com
+                      platform_id: '1'
+                      status: true
+                      updated_at: '2021-11-11T21:05:37.000000Z'
+                      created_at: '2021-11-11T21:05:37.000000Z'
+                      id: 4
+      tags:
+        - Subscriptions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform_id:
+                  type: integer
+                  description: 'Platform ID. Example : 1'
+                  example: 16
+                email:
+                  type: email
+                  description: 'Title Of The Post. Example : send2raju.bd@gmail.com'
+                  example: nisi
+                status:
+                  type: boolean
+                  description: 'Status . Example : 1'
+                  example: true
+              required:
+                - platform_id
+                - status
+      security: []
 tags:
   -
-    name: Subscriptions
+    name: Posts
     description: ''
   -
-    name: Posts
+    name: Subscriptions
     description: ''
