@@ -15,6 +15,10 @@ class CreatePostHasSubscribersTable extends Migration
     {
         Schema::create('post_has_subscribers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('platform_id');
+            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');;
+            $table->unsignedBigInteger('subscriber_id');
+            // $table->foreign('subscriber_id')->references('id')->on('subscribers');
             $table->timestamps();
         });
     }

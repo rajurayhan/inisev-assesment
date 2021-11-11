@@ -15,6 +15,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('platform_id');
+            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');;
             $table->string('title');
             $table->longText('description');
             $table->boolean('status');
