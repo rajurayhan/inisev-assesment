@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\PostCreated;
 use App\Http\Controllers\Controller;
 use App\Libraries\WebApiResponse;
 use App\Models\Post\Post;
@@ -65,6 +66,8 @@ class PostController extends Controller
             'description',
             'status'
         ]));
+
+        event(new PostCreated($post));
 
         return WebApiResponse::success(201, $post->toArray(), 'Post Created Successfully!');
     }
